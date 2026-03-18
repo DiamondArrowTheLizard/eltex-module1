@@ -1,0 +1,306 @@
+apt update
+Get:1 http://security.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Hit:2 http://ru.archive.ubuntu.com/ubuntu noble InRelease
+Get:3 http://ru.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Get:4 http://ru.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Get:5 http://security.ubuntu.com/ubuntu noble-security/main amd64 Packages [1,541 kB]
+Get:6 http://ru.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1,837 kB]
+Get:7 http://ru.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [177 kB]
+Get:8 http://ru.archive.ubuntu.com/ubuntu noble-updates/main amd64 c-n-f Metadata [16.7 kB]
+Get:9 http://ru.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+Get:10 http://ru.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1,566 kB]
+Get:11 http://ru.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [386 kB]  
+Get:12 http://ru.archive.ubuntu.com/ubuntu noble-updates/universe amd64 c-n-f Metadata [33.0 kB]
+Get:13 http://ru.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]    
+Get:14 http://ru.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7,348 B]      
+Get:15 http://ru.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [216 B]  
+Get:16 http://ru.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [13.2 kB]  
+Get:17 http://security.ubuntu.com/ubuntu noble-security/main Translation-en [247 kB]              
+Get:18 http://security.ubuntu.com/ubuntu noble-security/main amd64 Components [21.5 kB]                           
+Get:19 http://security.ubuntu.com/ubuntu noble-security/main amd64 c-n-f Metadata [10.5 kB]                           
+Get:20 http://security.ubuntu.com/ubuntu noble-security/restricted amd64 Components [212 B]                         
+Get:21 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Packages [977 kB]
+Get:22 http://ru.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]              
+Get:23 http://security.ubuntu.com/ubuntu noble-security/universe Translation-en [219 kB]         
+Get:24 http://security.ubuntu.com/ubuntu noble-security/universe amd64 Components [74.1 kB]
+Get:25 http://security.ubuntu.com/ubuntu noble-security/universe amd64 c-n-f Metadata [20.8 kB]
+Get:26 http://security.ubuntu.com/ubuntu noble-security/multiverse amd64 Components [212 B]
+Fetched 7,529 kB in 1s (5,058 kB/s) 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+87 packages can be upgraded. Run 'apt list --upgradable' to see them.
+
+apt install --yes git gh
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.43.0-1ubuntu7.3).
+git set to manually installed.
+The following NEW packages will be installed:
+  gh
+0 upgraded, 1 newly installed, 0 to remove and 87 not upgraded.
+Need to get 6,836 kB of archives.
+After this operation, 45.4 MB of additional disk space will be used.
+Get:1 http://ru.archive.ubuntu.com/ubuntu noble-updates/universe amd64 gh amd64 2.45.0-1ubuntu0.3 [8,836 kB]
+Fetched 8,836 kB in 1s (11.2 MB/s)
+Selecting previously unselected package gh.
+(Reading database ... 125245 files and directories currently installed.)
+Preparing to unpack .../gh_2.45.0-1ubuntu0.3_amd64.deb ...
+Unpacking gh (2.45.0-1ubuntu0.3) ...
+Setting up gh (2.45.0-1ubuntu0.3) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+
+Pending kernel upgrade!
+Running kernel version:
+  6.8.0-55-generic
+Diagnostics:
+  The currently running kernel version is not the expected kernel version 6.8.0-106-generic.
+
+Restarting the system to load the new kernel will not be handled automatically, so you should consider rebooting.
+
+Restarting services...
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart getty@tty1.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+git config --global user.name "DiamondArrowTheLizard"
+git config --global user.email "diamond1arrow@gmail.com"
+git config --global init.defaultBranch main
+
+ssh-keygen -t ed25519 -f .ssh/eltex-pg2-v15
+
+gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations on this host? SSH
+? Upload your SSH public key to your GitHub account? /root/.ssh/eltex-pg2-v15.pub
+? Title for your SSH key: eltex-practice2-pg2-v15
+? How would you like to authenticate GitHub CLI? Login with a web browser
+
+! First copy your one-time code: Кофе защищает от болезни Альцгеймера
+Press Enter to open github.com in your browser... 
+! Failed opening a web browser at https://github.com/login/device
+  exec: "xdg-open,x-www-browser,www-browser,wslview": executable file not found in $PATH
+  Please try entering the URL in your browser manually
+✓ Authentication complete.
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+! Authentication credentials saved in plain text
+✓ Uploaded the SSH key to your GitHub account: /root/.ssh/eltex-pg2-v15.pub
+✓ Logged in as DiamondArrowTheLizard
+
+gh auth setup-git --hostname github.com
+
+gh auth status
+github.com
+  ✓ Logged in to github.com account DiamondArrowTheLizard (/root/.config/gh/hosts.yml)
+  - Active account: true
+  - Git operations protocol: ssh
+  - Token: gho_************************************
+  - Token scopes: 'admin:public_key', 'gist', 'read:org', 'repo'
+
+gh repo create --public "eltex-module1"
+✓ Created repository DiamondArrowTheLizard/eltex-module1 on GitHub
+  https://github.com/DiamondArrowTheLizard/eltex-module1
+
+mkdir eltex-module1 && cd eltex-module1
+
+git init
+Initialized empty Git repository in /root/eltex-module1/.git/
+
+echo "#Краткое описание репозитория" >> README.md
+
+git add README.md
+
+git commit -m "first commit"
+[main (root-commit) ef34414] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+git branch -M main
+
+git remote add origin https://github.com/DiamondArrowTheLizard/eltex-module1
+
+git status
+On branch main
+nothing to commit, working tree clean
+
+git push -u origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 274 bytes | 274.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/DiamondArrowTheLizard/eltex-module1
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+mkdir -p module1/task1
+
+mkdir module1/task2
+
+mkdir module1/task3
+
+scp report_part1.txt root@172.16.9.215:/root/eltex-module1/module1/task1
+Enter passphrase for key '/home/eltex-pg2-v15/.ssh/id_rsa': 
+report_part1.txt                                          100%  128     8.9KB/s   00:00 
+
+scp eltex-pg2-v15_part2.log   root@172.16.9.215:/root/eltex-module1/module1/task2
+Enter passphrase for key '/home/eltex-pg2-v15/.ssh/id_rsa': 
+eltex-pg2-v15_part2.log                                   100% 3839     9.3MB/s   00:00
+
+scp eltex-pg2-v15_part3.log   root@172.16.9.215:/root/eltex-module1/module1/task3
+Enter passphrase for key '/home/eltex-pg2-v15/.ssh/id_rsa': 
+eltex-pg2-v15_part3.log                                   100% 7299    12.4MB/s   00:00
+
+scp eltex-pg2-v15_part3_gt50M.log    root@172.16.9.215:/root/eltex-module1/module1/task3
+Enter passphrase for key '/home/eltex-pg2-v15/.ssh/id_rsa': 
+eltex-pg2-v15_part3_gt50M.log                             100% 2863     7.3MB/s   00:00 
+
+git add .
+
+git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   module1/task1/report_part1.txt
+	new file:   module1/task2/eltex-pg2-v15_part2.log
+	new file:   module1/task3/eltex-pg2-v15_part3.log
+	new file:   module1/task3/eltex-pg2-v15_part3_gt50M.log
+
+git commit -m "added reports w/commands used to finish modules"
+[main c3965d7] added reports w/commands used to finish modules
+ 4 files changed, 405 insertions(+)
+ create mode 100644 module1/task1/report_part1.txt
+ create mode 100644 module1/task2/eltex-pg2-v15_part2.log
+ create mode 100644 module1/task3/eltex-pg2-v15_part3.log
+ create mode 100644 module1/task3/eltex-pg2-v15_part3_gt50M.log
+
+git push
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (10/10), 3.77 KiB | 3.77 MiB/s, done.
+Total 10 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/DiamondArrowTheLizard/eltex-module1
+   ef34414..c3965d7  main -> main
+
+cd && mkdir eltex-module1_clone && cd eltex-module1_clone
+
+git clone https://github.com/DiamondArrowTheLizard/eltex-module1.git .
+Cloning into '.'...
+remote: Enumerating objects: 16, done.
+remote: Counting objects: 100% (16/16), done.
+remote: Compressing objects: 100% (14/14), done.
+remote: Total 16 (delta 0), reused 13 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (16/16), 4.98 KiB | 4.98 MiB/s, done.
+
+ls -l
+total 8
+drwxr-xr-x 5 root root 4096 Mar 18 11:40 module1
+-rw-r--r-- 1 root root   57 Mar 18 11:40 README.md
+
+cd ~/eltex-module1
+
+echo "module1 - Практика №1" >> README.md
+
+git add .
+
+git commit -m "modified README.md"
+[main 8402617] modified README.md
+ 1 file changed, 5 insertions(+)
+
+git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 427 bytes | 427.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/DiamondArrowTheLizard/eltex-module1
+   d15a158..8402617  main -> main
+
+cd ~/eltex-module1_clone
+
+git fetch
+remote: Enumerating objects: 8, done.
+remote: Counting objects: 100% (8/8), done.
+remote: Compressing objects: 100% (6/6), done.
+Unpacking objects: 100% (6/6), 1.40 KiB | 1.40 MiB/s, done.
+remote: Total 6 (delta 0), reused 3 (delta 0), pack-reused 0 (from 0)
+From https://github.com/DiamondArrowTheLizard/eltex-module1
+   d15a158..2f5f8d2  main       -> origin/main
+
+git log origin/main
+commit 2f5f8d2e901e0c5b26d5fe29026171db86f64c43 (origin/main, origin/HEAD)
+Author: Artemiy Dement'ev <164989836+DiamondArrowTheLizard@users.noreply.github.com>
+Date:   Wed Mar 18 18:48:09 2026 +0700
+
+    removed git stash symbols
+
+commit 8402617950e70ef01991fa6f0e1250a1d62ce020
+Author: DiamondArrowTheLizard <diamond1arrow@gmail.com>
+Date:   Wed Mar 18 11:46:24 2026 +0000
+
+    modified README.md
+
+commit d15a158a191153ccd9cc8cb6fd64f8e126265652 (HEAD -> main)
+Author: Artemiy Dement'ev <164989836+DiamondArrowTheLizard@users.noreply.github.com>
+Date:   Wed Mar 18 18:33:28 2026 +0700
+
+    fixed formatting error in README.md
+
+commit c3965d71ec9a39d9f56f40df4297ff8b49ce40d3
+Author: DiamondArrowTheLizard <diamond1arrow@gmail.com>
+Date:   Wed Mar 18 11:31:46 2026 +0000
+
+    added reports w/commands used to finish modules
+
+commit ef34414553851d0b28d2101cf29302d339fb6dfc
+Author: DiamondArrowTheLizard <diamond1arrow@gmail.com>
+Date:   Wed Mar 18 11:20:12 2026 +0000
+
+    first commit
+
+
+git diff main origin/main
+diff --git a/README.md b/README.md
+index a7eddd8..ec1fa5d 100644
+--- a/README.md
++++ b/README.md
+@@ -1 +1,2 @@
+ # Краткое описание репозитория
++module1 - Практика №1
+
+git merge
+Updating d15a158..2f5f8d2
+Fast-forward
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+cd ~/eltex-module1
+
+mkdir -p module2/task1 module2/task2 module2/task3
+
+cp ~/practice2_eltex-practice2-pg2-v15_part2.log ./module2/task2/
+
+cp ~/practice2_eltex-practice2-pg2-v15_part3.log ./module2/task3/
+
+git add .
+
+git commit -m "added reports for module 2"
+
+git push
